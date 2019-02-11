@@ -1,0 +1,51 @@
+'Basu dev subeid 
+' find out the number that the program guess 
+'12/12 
+Public Class Form1
+    Private secretNumber, numguess As Integer
+
+    Private Sub giveTheGuess(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Randomize()
+        secretNumber = Int(Rnd() * (100 - 1 + 1) + 1)
+    End Sub
+
+    Private Sub commenting(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuess.Click
+        Dim guess, buttonResult As Integer
+        guess = Val(txtEnterGuess.Text)
+
+        numGuess += 1
+        If guess > 100 Or guess < 1 Then
+            buttonResult = MessageBox.Show("Enter the number between 1- 100 ", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+        ElseIf  guess < secretNumber Then
+            Me.lblComent.Text = " too low "
+        ElseIf guess > secretNumber Then
+            Me.lblComent.Text = " too high "
+        Else
+            Me.lblComent.Text = "  You got it in " & numGuess & " guesses"
+            Me.btnNewGame.Enabled = True
+            Me.btnGuess.Enabled = False
+        End If
+        If numGuess = 7 And guess <> secretNumber Then
+            Me.lblComent.Text = " Sorry,you lose! The secret number was " & secretNumber
+            btnGuess.Enabled = False
+            btnNewGame.Enabled = True
+        End If
+
+        Me.lblNumberOfGuess.Text = numGuess
+    End Sub
+
+    Private Sub clearTheComment(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEnterGuess.TextChanged
+        Me.lblComent.Text = ""
+    End Sub
+
+    Private Sub startNewGame(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewGame.Click
+        secretNumber = Int(Rnd() * (100 - 1 + 1) + 1)
+        Me.lblComent.Text = ""
+        Me.txtEnterGuess.Text = ""
+        numGuess = 0
+        Me.lblNumberOfGuess.Text = ""
+        Me.btnNewGame.Enabled = False
+        Me.btnGuess.Enabled = True
+
+    End Sub
+End Class
