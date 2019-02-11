@@ -1,0 +1,39 @@
+'Basu dev subedi 
+'display the result 
+'10/23 
+
+Public Class Form1
+    
+    Private Sub displayExp1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExp1.Click
+        Me.lblExp1.Text = 5 + 2 ^ 3
+    End Sub
+
+    Private Sub displayExp2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExp2.Click
+        Me.lblExp2.Text = 4 / 2 + 5
+    End Sub
+
+    Private Sub displayExp3(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExp3.Click
+        Me.lblExp3.Text = 3 + 4 * 2
+    End Sub
+
+    Private Sub diaplayExp4(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExp4.Click
+        Me.lblExp4.Text = 7 - 3 + 2
+    End Sub
+
+    Private Sub diaplayExp5(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExp5.Click
+        Me.lblExp5.Text = 90 \ 10
+    End Sub
+
+    Private Sub dispalyExp6(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExp6.Click
+        Me.lblExp6.Text = 100 Mod 5
+    End Sub
+
+    Private Sub clearExp(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClear.Click
+        Me.lblExp1.Text = ""
+        Me.lblExp2.Text = ""
+        Me.lblExp3.Text = ""
+        Me.lblExp4.Text = ""
+        Me.lblExp5.Text = ""
+        Me.lblExp6.Text = ""
+    End Sub
+End Class
