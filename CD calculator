@@ -1,0 +1,39 @@
+Public Class Form1
+    'Basu 
+    '02/06/2019
+    ' program calculate the year your money will take to grow up as you want in a your interest rate 
+
+    Private Sub calculateTheYear(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        Dim numyear As Integer
+        Dim startingValue, endingValue, interestRate As Single
+
+        startingValue = Val(Me.txtInitialInsvetsment.Text)
+        endingValue = Val(Me.txtEndingValue.Text)
+        interestRate = Val(Me.txtAnnualInterestRate.Text)
+        numyear = 0
+
+        If startingValue >= endingValue Then
+            MessageBox.Show(" You already got enought money.", "Error", MessageBoxButtons.OK)
+        ElseIf interestRate = 0 Then
+            MessageBox.Show(" You got interest rate 0 percent so your money won't increase", " Important Message", MessageBoxButtons.OK)
+        ElseIf interestRate > 100 Then
+            MessageBox.Show("Interest rate won't go up to 100, sorry", " Error", MessageBoxButtons.OK)
+        End If
+
+        Do Until startingValue > endingValue
+            startingValue = startingValue + (startingValue * (interestRate / 100))
+            numyear += 1
+        Loop
+
+        lblComment.Text = " the number of years =" & numyear
+
+
+
+    End Sub
+
+    Private Sub clearTheResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtInitialInsvetsment.TextChanged, txtAnnualInterestRate.TextChanged, txtEndingValue.TextChanged
+
+        Me.lblComment.Text = ""
+
+    End Sub
+End Class
