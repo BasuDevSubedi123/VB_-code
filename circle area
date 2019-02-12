@@ -1,0 +1,15 @@
+'Basu dev subedi 
+'11/2 
+'calculate the area of circle 
+Public Class Form1
+    Private Sub CalculateArea(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        Const PI As Double = 3.14159
+        Dim radius, Area As Single
+
+        radius = Val(txtRadious.Text)
+
+        Area = PI * radius ^ 2
+
+        lblArea.Text = Area
+    End Sub
+End Class
