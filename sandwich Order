@@ -1,0 +1,39 @@
+'Basu subedi 
+'calculate price according to size 
+'12/5
+Public Class Form1
+
+    Private Sub calculationThePrice(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPlaceOrder.Click
+        Dim price As Single = 0
+        Dim buttonResult As String
+
+        If radSmall.Checked Then
+            price += 2.5
+        Else
+            price += 4
+        End If
+        If chkCheese.Checked Then
+            price += 0.5
+        End If
+        If chkLettuce.Checked Then
+            price += 0.1
+        End If
+        If chkTamato.Checked Then
+            price += 0.25
+        End If
+        If chkOnion.Checked Then
+            price += 0.1
+        End If
+        buttonResult = (MessageBox.Show("Do you want a add chip and a drink for $ 1.50", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2))
+        If buttonResult = DialogResult.Yes Then
+            price += 1.5
+        End If
+
+        lblResult.Text = FormatCurrency(price)
+
+    End Sub
+
+    Private Sub clearTheResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles radLarge.CheckedChanged, chkCheese.CheckedChanged, chkLettuce.CheckedChanged, chkMayonnaise.CheckedChanged, chkMustard.CheckedChanged, chkOnion.CheckedChanged, chkTamato.CheckedChanged, radSmall.CheckedChanged
+        Me.lblResult.Text = ""
+    End Sub
+End Class
