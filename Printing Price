@@ -1,0 +1,31 @@
+
+'Basu subedi 
+' print the price per one and calculate the price for all 
+' 11/26
+
+Public Class Form1
+
+    Private Sub showThePriceAndCalculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        Dim numCopy As Integer
+        Dim totalPrice, price As Single
+
+        numCopy = Val(txtNumCopy.Text)
+        If numCopy <= 499 Then
+            price = 0.3
+        ElseIf numCopy <= 749 Then
+            price = 0.28
+        ElseIf numCopy <= 999 Then
+            price = 0.27
+        Else
+            price = 0.25
+        End If
+        Me.lblPricePer.Text = price
+        totalPrice = price * numCopy
+        Me.lblTotalPrice.Text = totalPrice
+    End Sub
+
+    Private Sub changeThePrice(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNumCopy.TextChanged
+        Me.lblTotalPrice.Text = ""
+        Me.lblPricePer.Text = ""
+    End Sub
+End Class
