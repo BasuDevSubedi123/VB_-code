@@ -1,0 +1,27 @@
+'Basu subedui
+' 11/20 
+' show the ressult in lettet Grade 
+Public Class Form1
+    Private Sub ChangeGradeInLetterGrade(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShowGrade.Click
+        Dim numberGrade As Integer
+        Dim lettergrade As Char
+
+        numberGrade = Val(TxtGrade.Text)
+        If numberGrade >= 90 Then
+            lettergrade = "A"
+        ElseIf numberGrade >= 80 Then
+            lettergrade = "B"
+        ElseIf numberGrade >= 70 Then
+            lettergrade = "C"
+        ElseIf numberGrade = 60 Then
+            lettergrade = "D"
+        Else
+            lettergrade = "F"
+        End If
+        Me.lblLetterGrade.Text = lettergrade
+    End Sub
+
+    Private Sub ClearTheLetterGrade(ByVal sender As Object, ByVal e As System.EventArgs) Handles TxtGrade.TextChanged
+        Me.lblLetterGrade.Text = ""
+    End Sub
+End Class
