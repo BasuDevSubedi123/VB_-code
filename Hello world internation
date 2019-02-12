@@ -1,0 +1,18 @@
+
+'Basu subedi 
+'display hello World in english, spanish and France 
+'date 10/11
+Public Class Form1
+
+    Private Sub desplayEnglish(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles radEnglish.CheckedChanged
+        Me.lblGreeting.Text = "Hellow,World"
+    End Sub
+
+    Private Sub desplayFranch(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles radFranch.CheckedChanged
+        Me.lblGreeting.Text = "Bonjour le monde!"
+    End Sub
+
+    Private Sub radSpanish_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles radSpanish.Click
+        Me.lblGreeting.Text = "Hola, munda"
+    End Sub
+End Class
