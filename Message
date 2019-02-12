@@ -1,0 +1,22 @@
+' Basu Subedi 
+'Displays Hello, world and Smile
+' 10/04
+
+
+Public Class Form1
+
+
+    Private Sub exitProgram(ByVal sender As Object, ByVal e As System.EventArgs) Handles mnuExit.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub displaySmile(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuSmile.Click
+        Me.lblMessage.Text = "Smile"
+    End Sub
+
+    Private Sub displayHW(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuHelloWorld.Click
+        Me.lblMessage.Text = "hello, World"
+    End Sub
+
+
+End Class
