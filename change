@@ -1,0 +1,43 @@
+
+
+'Basu subedi 
+'10/25
+'change cents in Quarter, Dime, nickels, and Pennies 
+
+Public Class Form1
+
+    Private Sub changeInQuaterDimePaniesNickel(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnChange.Click
+        Dim quater, total, left, dime, nickels, pennies As Single
+
+        Total = Val(txtTotal.Text)
+        quater = total \ 25
+        left = Total Mod 25
+        lblQuarters.Text = Total \ 25
+
+        Total = left
+        dime = total \ 10
+        left = total Mod 10
+
+        lblDimes.Text = Dime
+
+        Total = Total Mod 10
+        nickels = total \ 5
+        left = Total Mod 5
+        lblNickel.Text = Nickels
+
+        Tota = total Mod 5
+        pennies =
+        lblPennies.Text = pennies
+    End Sub
+
+
+    Private Sub clearTheResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtTotal.TextChanged
+        Me.lblPennies.Text = ""
+        Me.lblDimes.Text = ""
+        Me.lblNickel.Text = ""
+        Me.lblQuarters.Text = ""
+    End Sub
+End Class
+
+
+
