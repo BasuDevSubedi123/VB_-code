@@ -1,0 +1,78 @@
+
+'Basu subedi 
+' 01/08
+' program throw one ofone of Rock, paper and scissor to play with the palyer 
+
+Public Class Form1
+    Private numwin, numlosses, numTies As Integer
+    Private Sub ruleToWork(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShoot.Click
+        Const ROCK As Integer = 1
+        Const PAPER As Integer = 2
+        Dim computerThrow As Integer
+
+        computerThrow = Int(3 * Rnd() + 1)
+        If radRock.Checked Then
+            If computerThrow = ROCK Then
+                Me.lblResult.Text = "It's Draw "
+                numTies += 1
+            ElseIf computerThrow = PAPER Then
+                Me.lblResult.Text = "Computer win "
+                numlosses += 1
+            Else
+                Me.lblResult.Text = " You win !"
+                numwin += 1
+            End If
+        ElseIf radPaper.Checked Then
+            If computerThrow = ROCK Then
+                Me.lblResult.Text = " You win!"
+                numwin += 1
+            ElseIf computerThrow = PAPER Then
+                Me.lblResult.Text = " It's Draw"
+                numTies += 1
+            Else
+                Me.lblResult.Text = " Computer win!"
+                numlosses += 1
+            End If
+        ElseIf radScissor.Checked Then
+            If computerThrow = ROCK Then
+                Me.lblResult.Text = "Computer win!"
+                numlosses += 1
+            ElseIf computerThrow = PAPER Then
+                Me.lblResult.Text = " You win!"
+                numwin += 1
+            Else
+                Me.lblResult.Text = "It's Draw"
+                numTies += 1
+            End If
+
+        End If
+        If computerThrow = ROCK Then
+            picComputerThrow.Image = My.Resources.rock
+        ElseIf computerThrow = PAPER Then
+            picComputerThrow.Image = My.Resources.paper
+        Else
+            picComputerThrow.Image = My.Resources.scissors
+        End If
+
+        Me.lblTies.Text = numTies
+        Me.lblWin.Text = numwin
+        Me.lblLoss.Text = numlosses
+    End Sub
+
+    Private Sub randomizedNumber(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Click
+        Randomize()
+    End Sub
+
+    Private Sub clearTheResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles radRock.Click, radPaper.Click, radScissor.Click
+        Me.lblResult.Text = ""
+        If radPaper.Checked Then
+            Me.picYourThrow.Image = My.Resources.paper
+        ElseIf radRock.Checked Then
+            Me.picYourThrow.Image = My.Resources.rock
+        Else
+            Me.picYourThrow.Image = My.Resources.scissors
+        End If
+        Me.picComputerThrow.Image = Nothing
+    End Sub
+
+End Class
