@@ -1,0 +1,23 @@
+
+'Basu dev subedi 
+'10/31
+' convert Minute in second, hour
+Public Class fmTimeconversion
+    Private Sub radMinuteToSecond_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles radMinuteToSecond.CheckedChanged
+        Dim total, second As Single
+        total = Val(txtTimeInMinute.Text)
+        second = Val(total * 60)
+        lblHours.Text = second
+
+    End Sub
+    Private Sub radMinuteToHrsAndMin_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles radMinuteToHrsAndMin.CheckedChanged
+        Dim total, leftover, hours As Single
+        total = Val(txtTimeInMinute.Text)
+        hours = Val(total \ 60)
+        leftover = total Mod 60
+        lblHours.Text = hours
+        lblMinute.Text = leftover
+    End Sub
+
+End Class
+
