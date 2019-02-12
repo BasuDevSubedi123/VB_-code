@@ -1,0 +1,17 @@
+Public Class Form1
+
+    Private Sub btnPay_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPay.Click
+        Dim worked, hour As Single
+
+        worked = Val(Me.txtHourWorked.Text)
+        hour = Val(Me.txtHourRate.Text)
+
+        If worked <= 40 Then
+            Me.lblGrossWages.Text = worked * hour
+        Else
+            Me.lblGrossWages.Text = (worked * hour
+        End If
+
+
+    End Sub
+End Class
