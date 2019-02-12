@@ -1,0 +1,77 @@
+Public Class Form1
+    'Basu dev subedi
+    ' 02/01/2019
+    ' the program generate a problem and guide the 
+    Dim number1, number2, sign As Integer
+    Private Sub btnNewProblem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewProblem.Click
+
+        sign = Int(Rnd() * 4) + 1
+        number1 = Int(Rnd() * 10) + 1
+        number2 = Int(Rnd() * 10) + 1
+        If sign = 1 Then
+            Me.lblOperator.Text = "+"
+        ElseIf sign = 2 Then
+            Me.lblOperator.Text = "-"
+        ElseIf sign = 3 Then
+            Me.lblOperator.Text = "*"
+        Else
+            Me.lblOperator.Text = "/"
+        End If
+        Me.lblFirstNumber.Text = number1
+        Me.lblSecondNumber.Text = number2
+        Me.lblResult.Text = ""
+        Me.txtAnswer.Text = ""
+
+    End Sub
+
+    Private Sub btnCheckAnswer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCheckAnswer.Click
+        Dim answer As Integer
+        answer = Val(Me.txtAnswer.Text)
+        If sign = 1 Then
+            If answer = number1 + number2 Then
+                Me.lblResult.Text = " you are Right"
+            Else
+                Me.lblResult.Text = " you are wrong"
+            End If
+        ElseIf sign = 2 Then
+            If answer = number1 - number2 Then
+                Me.lblResult.Text = " you are Right "
+            Else
+                Me.lblResult.Text = " you are Wrong,"
+            End If
+        ElseIf sign = 3 Then
+            If answer = number1 * number2 Then
+                Me.lblResult.Text = " you are Right"
+            Else
+                Me.lblResult.Text = " you are Wrong"
+            End If
+        Else
+            If answer = number1 / number2 Then
+                Me.lblResult.Text = " you are Right "
+            Else
+                Me.lblResult.Text = " you are Wrong"
+            End If
+        End If
+      
+
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Randomize()
+    
+    End Sub
+
+    Private Sub btnShowAnswer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShowAnswer.Click
+        Dim answer As Single
+        If sign = 1 Then
+            answer = number1 + number2
+        ElseIf sign = 2 Then
+            answer = number1 - number2
+        ElseIf sign = 3 Then
+            answer = number1 * number2
+        Else
+            answer = number1 / number2
+        End If
+        Me.txtAnswer.Text = answer
+    End Sub
+End Class
