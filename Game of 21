@@ -1,0 +1,95 @@
+'Basu
+'01/30/2019
+'player will get card 2 card by itself and draw a card and play with the computer with will generated 3 card
+Public Class Form1
+    Private sumUser As Integer
+
+    Private Sub generateRandamNumber(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim userDealt, userDealt2 As Integer
+        Randomize()
+
+        userDealt = Int(Rnd() * 10) + 1
+        userDealt2 = Int(Rnd() * 10) + 1
+        sumUser = userDealt + userDealt2
+
+        lblPlayerDealt.Text = userDealt
+        lblPlayerDealt2.Text = userDealt2
+        Me.lblPlayerScore.Text = sumUser
+    End Sub
+    Private Sub getANewNumber(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDraw.Click
+        Dim userDealt3 As Integer
+
+        userDealt3 = Int(Rnd() * 10) + 1
+        sumUser += userDealt3
+        Me.lblPlayerDealt3.Text = userDealt3
+        Me.lblPlayerScore.Text = sumUser
+        Me.btnDraw.Enabled = False
+    End Sub
+
+    Private Sub calculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCheckScore.Click
+        Dim comDealt, comDealt2, comDealt3, sumCom As Integer
+        comDealt = Int(Rnd() * 10) + 1
+        comDealt2 = Int(Rnd() * 10) + 1
+        comDealt3 = Int(Rnd() * 10) + 1
+        sumCom = comDealt + comDealt2 + comDealt3
+
+        Me.lblComputerDealt.Text = comDealt
+        Me.lblComputerDealt2.Text = comDealt2
+        Me.lblComputerDealt3.Text = comDealt3
+        Me.lblComputerScore.Text = sumCom
+        Me.lblPlayerScore.Text = sumUser
+        Me.btnDraw.Enabled = False
+        Me.btnCheckScore.Enabled = False
+        If sumCom = sumUser Then
+            MessageBox.Show("its draw", "message", MessageBoxButtons.OK)
+        ElseIf sumCom > 21 And sumUser > 21 Then
+            MessageBox.Show("its draw ", " message ", MessageBoxButtons.OK)
+        ElseIf sumCom > sumUser And sumCom <= 21 Then
+            MessageBox.Show("You lose!", " message", MessageBoxButtons.OK)
+        ElseIf sumUser > 21 And sumCom <= 21 Then
+            MessageBox.Show(" You lose!", " message", MessageBoxButtons.OK)
+        ElseIf sumCom > 21 And sumUser <= 21 Then
+            MessageBox.Show(" You win!", " message", MessageBoxButtons.OK)
+        Else
+            MessageBox.Show(" You win!", "Message ", MessageBoxButtons.OK)
+        End If
+
+        'If sumCom = sumUser Or sumCom > 21 And sumUser > 21 Then
+        ' MessageBox.Show("its draw ", " message ", MessageBoxButtons.OK)
+        ' ElseIf sumCom <= 21 And (sumCom > sumUser Or sumUser > 21) Then
+        ' MessageBox.Show("You lose!", " message", MessageBoxButtons.OK)
+        ' Else
+        ' MessageBox.Show(" You win!", "Message ", MessageBoxButtons.OK)
+        ' End If
+
+
+    End Sub
+
+
+    Private Sub closeApplicationClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles nmuExit.Click
+        Me.Close()
+    End Sub
+
+
+    Private Sub generateNewNumberForNewGame(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuNewGame.Click
+        Dim userDealt, userDealt2 As Integer
+
+       
+        userDealt = Int(Rnd() * 10) + 1
+        userDealt2 = Int(Rnd() * 10) + 1
+
+        sumUser = userDealt + userDealt2
+
+        Me.lblPlayerScore.Text = sumUser
+        Me.lblPlayerDealt.Text = userDealt
+        Me.lblPlayerDealt2.Text = userDealt2
+        Me.lblComputerDealt.Text = ""
+        Me.lblComputerDealt2.Text = ""
+        Me.lblComputerDealt3.Text = ""
+        Me.lblPlayerDealt3.Text = " "
+        Me.lblComputerScore.Text = ""
+        Me.btnDraw.Enabled = True
+        Me.btnCheckScore.Enabled = True
+
+    End Sub
+End Class
