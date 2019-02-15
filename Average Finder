@@ -1,0 +1,26 @@
+Public Class Form1
+    ' Basu 
+    ' 2/14/ 2019 
+    ' program find out th Average of the number get by the user 
+    Private Sub btnFindAverage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFindAverage.Click
+        Dim grade As String
+        Dim count As Integer
+        Dim total, average As Single
+
+        Me.lblResult.Text = ""
+        Do
+            grade = InputBox(" Enter the number")
+            If grade <> Nothing Then
+                If IsNumeric(grade) = True Then
+                    count += 1
+                    total += grade    
+                Else
+                    MessageBox.Show("  This is not a number ", " Error ", MessageBoxButtons.OK)
+                End If
+            Else
+            End If
+        Loop Until grade = Nothing
+        average = total / count
+        lblResult.Text = average
+    End Sub
+End Class
