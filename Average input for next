@@ -1,0 +1,25 @@
+Public Class Form1
+    'Basu 
+    '03/5/2019
+    ' The program will take number as the user told first and calculate the average from that number
+
+    Private Sub calculataeAverage(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        Dim number As String
+        Dim average, total As Single
+        Dim num As Integer
+
+        num = Val(Me.txtEnterNumber.Text)
+
+        For I As Integer = 1 To num
+            number = InputBox(" Enter The number ")
+            total += Val(number)
+        Next I
+        average = total / num
+
+        Me.lblAverage.Text = average
+    End Sub
+
+    Private Sub clearResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEnterNumber.TextChanged
+        Me.lblAverage.Text = ""
+    End Sub
+End Class
