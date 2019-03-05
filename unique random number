@@ -1,0 +1,37 @@
+Public Class Form1
+
+    'Basu
+    '2/11/2019 
+    ' program will generate random number below 
+
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Randomize()
+    End Sub
+
+    Private Sub btnGenerateNumber_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGenerateNumber.Click
+        Dim number1, number2, number3, userNumber, numloop As Integer
+
+        userNumber = Val(Me.txtUserNumber.Text)
+        numloop = 0
+
+        If userNumber < 3 Or userNumber > 10 Then
+
+            MessageBox.Show(" the number you gave is lower than 3-10 ", " error ", MessageBoxButtons.OK)
+
+        Else
+            Do
+                numloop += 1
+                number1 = (Rnd() * (userNumber - 3) - 1) + 1
+                number2 = (Rnd() * (userNumber - 3) - 1) + 1
+                number3 = (Rnd() * (userNumber - 3) - 1) + 1
+            Loop Until number1 <> number2 And number3 <> number1 And number3 <> number2
+        End If
+
+        Me.lblFirstNumber.Text = number1
+        Me.lblSecondNumber.Text = number2
+        Me.lblThirdNumber.Text = number3
+        Me.lblComment.Text = " " & numloop & " loop iteration were needed to generate three unique number."
+    End Sub
+
+
+End Class
