@@ -1,0 +1,46 @@
+Public Class Form1
+    'Basu 
+    ' 2019/02/21 
+    ' program findout the hightest and lowest withe average bowling score 
+
+    Private Sub calculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInputScore.Click
+
+        Dim max, min, average, total As Single
+        Dim bowlingscore As String
+        Dim number As Integer
+        max = 0
+        min = 300
+        Do
+            bowlingscore = InputBox("Enter the BowlingScore")
+
+            If bowlingscore <> Nothing Then
+                If IsNumeric(bowlingscore) = True Then
+                    If bowlingscore >= 0 And bowlingscore <= 300 Then
+                        number += 1
+                        total += bowlingscore
+                        If bowlingscore > max Then
+                            max = bowlingscore
+                        End If
+                        If bowlingscore < min Then
+                            min = bowlingscore
+                        End If
+                    Else
+                        MessageBox.Show("Please Enter the Number between 0-300", "Error ", MessageBoxButtons.OK)
+                    End If
+                Else
+                    MessageBox.Show(" its not a Numeric Number, Please Enter the Numeric NUmber ", " Error ", MessageBoxButtons.OK)
+                End If
+            End If
+
+        Loop Until bowlingscore = Nothing
+        average = total / number
+
+        Me.lblAverage.Text = average
+        Me.lblMax.Text = max
+        Me.lblMin.Text = min
+
+    End Sub
+End Class
+
+
+
