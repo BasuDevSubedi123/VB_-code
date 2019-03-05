@@ -1,0 +1,27 @@
+Public Class Form1
+    'Basu 
+    ' 2/28/2019
+    ' program will calculate the factorial of the number given by the user 
+
+    Private Sub calculatingFactorial(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        Dim factorial As Long
+        Dim number As Integer
+
+        number = Val(Me.txtEnterNumber.Text)
+        factorial = 1
+        For I As Integer = 1 To Number Step 1
+            factorial *= I
+        Next
+        Me.lblResult.Text = number & "!=" & factorial
+
+
+    End Sub
+
+    Private Sub clear(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEnterNumber.TextChanged
+        Me.lblResult.Text = ""
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
