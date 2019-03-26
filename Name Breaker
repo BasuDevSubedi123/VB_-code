@@ -1,0 +1,22 @@
+Public Class Form1
+    'Basu 
+    ' Program will take full naem from the User and breack that down in first and last name 
+    '3/22/2019
+    Private Sub findOutTheName(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSplit.Click
+        Dim name, first, last As String
+        Dim space As Integer
+
+        name = Me.txtName.Text.Trim()
+        space = name.IndexOf(" ")
+        first = name.Substring(0, space)
+        last = name.Substring((space + 1))
+
+        Me.lblFirstName.Text = first
+        Me.lblLastName.Text = last
+    End Sub
+
+    Private Sub clearTheResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtName.TextChanged
+        Me.lblFirstName.Text = ""
+        Me.lblLastName.Text = ""
+    End Sub
+End Class
