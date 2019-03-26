@@ -1,0 +1,25 @@
+Public Class Form1
+    'Basu dev subedi
+    ' program will write the name backward which is given by the user 
+    ' 3/21/2019
+
+    Private Sub findOutBackName(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDisplayBackward.Click
+        Dim name, backName As String
+        Dim length As Integer
+
+
+        name = Me.txtName.Text
+        length = name.Length
+        backName = ""
+        For I As Integer = length - 1 To 0 Step -1
+            name = Me.txtName.Text
+            backName += name.Chars(I)
+        Next
+        Me.lblResult.Text = backName
+    End Sub
+
+    Private Sub clearTheResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtName.TextChanged
+        Me.lblResult.Text = ""
+    End Sub
+End Class
+
