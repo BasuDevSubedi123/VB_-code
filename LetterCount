@@ -1,0 +1,30 @@
+Public Class Form1
+    ' Basu 
+    '3/14/2019
+    ' the program count the number of word reapet and display it  
+
+    Private Sub findTheNumber(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCountLetter.Click
+        Dim count, length As Integer
+        Dim word, numletter As String
+        Dim letter As Char
+
+
+        word = Me.txtWord.Text.ToUpper()
+        letter = Me.txtLetter.Text.ToUpper()
+        length = word.Length()
+
+        For i As Integer = 0 To length - 1
+            numletter = word.Chars(i)
+            If numletter = letter Then
+                count += 1
+            End If
+        Next i
+
+        Me.lblResult.Text = count
+
+    End Sub
+
+    Private Sub clearTheResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLetter.Enter, txtWord.Enter
+        Me.lblResult.Text = ""
+    End Sub
+End Class
