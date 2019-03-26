@@ -1,0 +1,58 @@
+Public Class Form1
+    'Basu dev subedi
+    ' program will generate word and user try to guess letter and as well as word
+    '3/26/2019
+
+    Private Sub Calculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPlayGame.Click
+
+        Dim secretWord As String = "NOODLE"
+        Const FLAG As Char = "!"
+        Dim numGuesses As Integer = 0
+        Dim letterGuess As Char
+        Dim tempWord, fullWordGuess, letterInput As String
+        Dim wordGuessedSoFar As String = ""
+        Dim length As Integer = secretWord.Length
+        'Fill the word guessed so far with dashes and display it
+        wordGuessedSoFar = wordGuessedSoFar.PadLeft(length, "-")
+        Me.lblSecretword.Text = wordGuessedSoFar
+        Do
+            letterInput = InputBox("Enter a letter or " & FLAG & " to guess word: ", _
+Me.Text)
+            If letterInput <> Nothing And letterInput <> FLAG Then
+                'Take the first character of the input as upper case
+                letterGuess = letterInput.Trim.ToUpper.Chars(0)
+                numGuesses += 1
+                For I As Integer = 0 To length - 1
+                    If secretWord.Chars(I) = letterGuess Then
+                        'Remove dash at position guessed
+                        tempWord = wordGuessedSoFar.Remove(I, 1)
+                        'Insert guessed letter
+                        wordGuessedSoFar = tempWord.Insert(I, letterGuess)
+
+                    End If
+                Next
+                'update label
+                Me.lblSecretword.Text = wordGuessedSoFar
+            End If
+        Loop While letterInput <> FLAG And letterInput <> Nothing And _
+wordGuessedSoFar <> secretWord
+        'After we are done guessing letters...
+        If wordGuessedSoFar = secretWord Then
+            MessageBox.Show("You guessed it in " & numGuesses & " guesses!", Me.Text)
+        ElseIf letterInput = Nothing Then 'User Presses Cancel
+            MessageBox.Show("Game over.", Me.Text)
+        ElseIf letterInput = FLAG Then 'If they want to guess the word
+            fullWordGuess = InputBox("Try to guess the word:", Me.Text)
+            fullWordGuess = fullWordGuess.ToUpper.Trim
+            If fullWordGuess = secretWord Then
+                MessageBox.Show("You guessed it in " & numGuesses & " guesses!", Me.Text)
+            Else
+                MessageBox.Show("Sorry, you lose!", Me.Text)
+            End If
+        End If
+        'Display secret word when game is over
+        Me.lblSecretword.Text = secretWord
+
+
+    End Sub
+End Class
