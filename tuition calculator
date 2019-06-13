@@ -1,0 +1,30 @@
+Public Class Form1
+
+   
+    'Basu 
+    ' program will calculate the price you need to pay for the tuitions in the base of info you provide 
+    ' 6/4/2019
+    Private Sub calculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+
+        Const UNDERGRADUATE_PER_HOURS As Single = 75
+        Const GRADUATE As Single = 145
+        Const THESIS_PER_HOURS As Single = 160
+        Dim creditHours As Integer
+        Dim tuition As Single
+        creditHours = Val(Me.cboCreditHours.Text)
+        Select Case Me.lstCourseLevel.SelectedIndex
+            Case 0
+                tuition = UNDERGRADUATE_PER_HOURS * creditHours
+            Case 1
+                tuition = GRADUATE * creditHours
+            Case 2
+                tuition = THESIS_PER_HOURS * creditHours
+        End Select
+        Me.lblResult.Text = " Tuition is " & FormatCurrency(tuition)
+    End Sub
+
+    Private Sub clearResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstCourseLevel.SelectedIndexChanged, cboCreditHours.TextChanged
+
+        Me.lblResult.Text = ""
+    End Sub
+End Class
