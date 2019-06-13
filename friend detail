@@ -1,0 +1,48 @@
+Public Class Form1
+    'Basu 
+    ' the program will find the information of you friend that yoyu store 
+    ' 4/30/2019
+  
+    Private Sub findInfo(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetInfo.Click
+
+        Dim friendName As String
+        friendName = Me.txtFiendName.Text
+
+        Select Case friendName.ToUpper
+            Case "SHANA"
+                Call shanaInfo()
+            Case " LUIZ"
+                Call luizInfo()
+            Case "CRIS"
+                Call crisInfo()
+            Case Else
+                MessageBox.Show(" Sorry, No information available. ")
+        End Select
+    End Sub
+
+
+    Private Sub shanaInfo()
+        Me.picFriendPhoto.Image = My.Resources.shana
+        Me.lblFriendInfo.Text = " Shana's birthday is june 24. her favorate animal is the turtle, her favorate color is blue , and she likes to play tenes."
+    End Sub
+
+
+    Private Sub luizInfo()
+        Me.picFriendPhoto.Image = My.Resources.luiz
+        Me.lblFriendInfo.Text = " Luiz's birthday is August 21. His favorate animal is the tiger, his favorate color is green, and he likes to do gymnastics."
+    End Sub
+
+    Private Sub crisInfo()
+        Me.picFriendPhoto.Image = My.Resources.cris
+        Me.lblFriendInfo.Text = " Cris's birthday is september 20. His favorate animal is any kind of bird, his favorate color is red, and likes to play the guitar."
+    End Sub
+
+    Private Sub clearReasult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtFiendName.TextChanged
+        Me.lblFriendInfo.Text = ""
+        Me.picFriendPhoto.Image = Nothing
+    End Sub
+
+   
+End Class
+
+
