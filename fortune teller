@@ -1,0 +1,23 @@
+
+Public Class Form1
+    'Basu subedi
+    ' the programe will tell the fortune 
+    ' 6/10/2019
+
+    Dim fortune() As String = {"You will win the lottary", " You may find a new sumsang s10 unboxed phone", " You will get a suprice party ", " you might get in accedent", " you lose you point as a copying homework "}
+
+    Private Sub getFortune(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetFortune.Click
+        Dim fortuneIndex As Integer
+        Dim fortuneDetial As String
+        fortuneIndex = Int(Rnd() * (5))
+        fortuneDetial = fortune(fortuneIndex)
+
+        Me.lblResult.Text = fortuneDetial
+
+    End Sub
+
+    Private Sub Randomizes(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Randomize()
+    End Sub
+End Class
+
