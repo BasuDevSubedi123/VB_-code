@@ -1,0 +1,27 @@
+Public Class Form1
+    'Basu 
+    'The program will determine how much money you have in dollars 
+    '5/3/2019
+
+    Private Sub calculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        Dim quarter, dime, nickel, pannies As Integer
+        Dim money As Single
+        quarter = Val(Me.txtQuarters.Text)
+        dime = Val(Me.txtDimes.Text)
+        nickel = Val(Me.txtNickels.Text)
+        pannies = Val(Me.txtPannies.Text)
+
+        money = getMoney(quarter, dime, nickel, pannies)
+        Me.lblResult.Text = money
+    End Sub
+
+    Private Function getMoney(ByVal quater As Integer, ByVal dime As Integer, ByVal nickel As Integer, ByVal pannies As Integer) As Single
+        Return (quater * 25 + dime * 10 + nickel * 5 + pannies * 1) / 100
+
+    End Function
+
+  
+    Private Sub clearResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtDimes.TextChanged, txtNickels.TextChanged, txtPannies.TextChanged, txtQuarters.TextChanged
+        Me.lblResult.Text = ""
+    End Sub
+End Class
