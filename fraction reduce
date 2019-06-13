@@ -1,0 +1,46 @@
+Public Class Form1
+    ' Basu
+    ' the program do math and reduce the number in the smallest fraction number 
+    ' 5/23/2019
+
+    Private Sub calculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReduce.Click
+        Dim numerator, denominator, oldNumerator, oldDenominator As Integer
+
+        numerator = Val(txtNumerator.Text)	
+        denominator = Val(txtdenominator.Text)
+        oldNumerator = numerator
+        oldDenominator = denominator
+
+        Call reduce(numerator, denominator)
+
+        If numerator <> oldNumerator Then
+            Me.lblResult.Text = "" & oldNumerator & "/" & oldDenominator & " is reduce to " & numerator & "/" & denominator
+        Else
+            Me.lblResult.Text = "" & oldNumerator & "/" & oldDenominator & " does not Reduce "
+        End If
+
+    End Sub
+
+    Sub reduce(ByRef numerator As Integer, ByRef denominator As Integer)
+        Dim number As Integer = findGcf(numerator, denominator)
+        numerator = numerator / number
+        denominator = denominator / number
+    End Sub
+
+
+    Private Function findGcf(ByVal numerator As Integer, ByRef denominator As Integer) As Integer
+        Dim num As Integer
+
+        If numerator > denominator Then
+            num = denominator
+        Else
+            num = numerator
+        End If
+
+        Do Until numerator Mod num = 0 And denominator Mod num = 0
+            num -= 1
+        Loop
+
+        Return num
+    End Function
+End Class
