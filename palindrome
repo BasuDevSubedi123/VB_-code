@@ -1,0 +1,24 @@
+Public Class Form1
+
+    Private Sub findWhatIsIt(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCheck.Click
+        Dim name, backName As String
+        Dim length As Integer
+
+        name = Me.txtName.Text.ToUpper
+        backName = ""
+        length = name.Length - 1
+
+        For I As Integer = length To 0 Step -1
+            name = Me.txtName.Text.ToUpper
+            backName += name.Chars(I)
+        Next
+
+        If name = backName Then
+            Me.lblResult.Text = " It is a palindrome."
+        Else
+            Me.lblResult.Text = " It isn't a palindrome."
+        End If
+
+    End Sub
+
+End Class
