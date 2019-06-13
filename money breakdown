@@ -1,0 +1,32 @@
+Public Class Form1
+    'Basu 
+    ' the program will give you the grade in letter 
+    ' 5/3/2019
+    Private Sub calculate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        Dim numberGrade As Single
+        Dim letterGrade As Char
+
+        numberGrade = Val(Me.txtNumber.Text)
+        letterGrade = getletterGrade(numberGrade)
+        Me.lblResult.Text = letterGrade
+    End Sub
+
+    Private Function getLetterGrade(ByVal numberGrade As Integer) As Char
+        If numberGrade >= 90 Then
+            Return "A"
+        ElseIf numberGrade < 90 And numberGrade > 80 Then
+            Return "B"
+        ElseIf numberGrade < 80 And numberGrade > 70 Then
+            Return "C"
+        ElseIf numberGrade < 70 And numberGrade > 60 Then
+            Return "D"
+        Else
+            Return "F"
+        End If
+    End Function
+
+    Private Sub clearResult(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNumber.TextChanged
+        Me.lblResult.Text = ""
+    End Sub
+End Class
+
